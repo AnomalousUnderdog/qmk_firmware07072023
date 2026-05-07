@@ -263,7 +263,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // ---------------------------------------------------------------------------------
 
 #define SCREEN_RIGHTNESS_KEYS_COLOUR RGB_YELLOW
-#define KB_BRIGHTNESS_KEYS_COLOUR RGB_ORANGE
+#define KB_BRIGHTNESS_KEYS_HSV_COLOUR HSV_WHITE
 #define VOLUME_KEYS_COLOUR RGB_ORANGE
 
 #define MEDIA_KEYS_COLOUR 0x00, 0xD8, 0xFF
@@ -303,9 +303,13 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(INDEX_KEY_2, SCREEN_RIGHTNESS_KEYS_COLOUR); // up
 
         // keyboard brightness
-        rgb_matrix_set_color(INDEX_TAB, KB_BRIGHTNESS_KEYS_COLOUR); // toggle off/on
-        rgb_matrix_set_color(INDEX_KEY_Q, KB_BRIGHTNESS_KEYS_COLOUR); // down
-        rgb_matrix_set_color(INDEX_KEY_W, KB_BRIGHTNESS_KEYS_COLOUR); // up
+        hsv_t kb_brightness_hsv = {KB_BRIGHTNESS_KEYS_HSV_COLOUR};
+        kb_brightness_hsv.v = rgb_matrix_get_val();
+        rgb_t kb_brightness_rgb = hsv_to_rgb(kb_brightness_hsv);
+
+        rgb_matrix_set_color(INDEX_TAB, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // toggle off/on
+        rgb_matrix_set_color(INDEX_KEY_Q, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // down
+        rgb_matrix_set_color(INDEX_KEY_W, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // up
 
         // volume keys
         rgb_matrix_set_color(INDEX_DASH, VOLUME_KEYS_COLOUR); // down

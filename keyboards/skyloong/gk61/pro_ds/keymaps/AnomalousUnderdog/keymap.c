@@ -33,6 +33,9 @@
 // Navigate file member (Ctrl + F12)
 #define IDE_NAV_MEMBR C(KC_F12)
 
+// Rename (F2)
+#define IDE_RENAME KC_F2
+
 // Hold for Caps Lock layer. Tap once for Navigate file member.
 #define CAPS_MEMBR LT(CAPS_LOCK_LAYER,IDE_NAV_MEMBR)
 
@@ -158,7 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [CAPS_LOCK_LAYER] = LAYOUT_all(
         KC_END,      _______,    _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,      KC_CAPS,
-        TD_HOME,  IDE_NAV_TO,    IDE_TO_DECL,  _______,  _______,  _______,     KC_P7,    KC_P8,    KC_P9,  _______,  _______,  _______,  _______,  KC_NUM_LOCK,
+        TD_HOME,  IDE_NAV_TO,    IDE_TO_DECL,  _______,  IDE_RENAME,  _______,     KC_P7,    KC_P8,    KC_P9,  _______,  _______,  _______,  _______,  KC_NUM_LOCK,
         _______,  IDE_USAGES,  IDE_TO_IMPL,  _______,  _______,  _______,     KC_P4,    KC_P5,    KC_P6,  _______,  _______,  _______,                KC_PENT,
         TD_END,  MS_WHLU,  MS_WHLD,  _______,  _______,  _______,     KC_P1,    KC_P2,    KC_P3,  _______,  _______,            _______,
         REOPEN_TAB, PREV_TAB,  NEXT_TAB,                CLOSE_TAB,  _______,                                 KC_P0,  KC_PDOT, _______,  _______,  _______
@@ -358,6 +361,7 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(INDEX_KEY_W, IDE_KEYS_COLOUR);
         rgb_matrix_set_color(INDEX_KEY_A, IDE_KEYS_COLOUR);
         rgb_matrix_set_color(INDEX_KEY_S, IDE_KEYS_COLOUR);
+        rgb_matrix_set_color(INDEX_KEY_R, IDE_KEYS_COLOUR);
 
         // tab keys
         rgb_matrix_set_color(INDEX_LEFT_CTRL, TAB_KEYS_COLOUR); // reopen closed tab

@@ -27,8 +27,8 @@
 // Go to declaration or usages (Ctrl + B)
 #define IDE_TO_DECL C(KC_B)
 
-// Go to implementation (Ctrl + Alt + B)
-#define IDE_TO_IMPL LCA(KC_B)
+// Go to implementation (Ctrl + Alt + Shift + B)
+#define IDE_TO_IMPL MEH(KC_B)
 
 // Navigate file member (Ctrl + F12)
 #define IDE_NAV_MEMBR C(KC_F12)

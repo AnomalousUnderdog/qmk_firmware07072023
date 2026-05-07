@@ -136,16 +136,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [FN1_LAYER] = LAYOUT_all(
-        _______,  KC_BRID,  KC_BRIU,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  _______,   KC_VOLD,   KC_VOLU,   KC_MUTE,
-        RM_TOGG,  RM_VALD,  RM_VALU,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  KC_PSCR,  _______,  _______,  _______,
+        _______,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,     KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,   KC_F23,   KC_F24,   _______,
+        _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  KC_PSCR,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  _______,  _______,            KC_APP,
         _______,  _______,  _______,  KC_CALC,  _______,  _______,     _______,  _______,  _______,  _______,  _______,            _______,
         _______,  TG(GAMING_LAYER),  _______,                _______,  _______,                                 _______,  _______,  _______,  MO(FN3_LAYER),  _______
     ),
 
     [FN2_LAYER] = LAYOUT_all(
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PLAY_PAUSE,  _______,  _______,  _______,
+        _______,  KC_BRID,  KC_BRIU,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_VOLD,  KC_VOLU,  KC_MUTE,
+        RM_TOGG,  RM_VALD,  RM_VALU,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PLAY_PAUSE,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            OBS_REC_STA,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            OBS_REC_STP,
         _______,  _______,  _______,                _______,  _______,                              _______,  _______,  MO(FN3_LAYER),  _______,  _______
@@ -156,11 +156,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        _______ ,  _______,  _______,                _______,  _______,                              _______,  _______,  _______,  _______,  _______
+        _______ , _______,  _______,                _______,  _______,                              _______,  _______,  _______,  _______,  _______
     ),
 
     [CAPS_LOCK_LAYER] = LAYOUT_all(
-        KC_END,      _______,    _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,      KC_CAPS,
+        _______,      _______,    _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,      KC_CAPS,
         TD_HOME,  IDE_NAV_TO,    IDE_TO_DECL,  _______,  IDE_RENAME,  _______,     KC_P7,    KC_P8,    KC_P9,  _______,  _______,  _______,  _______,  KC_NUM_LOCK,
         _______,  IDE_USAGES,  IDE_TO_IMPL,  _______,  _______,  _______,     KC_P4,    KC_P5,    KC_P6,  _______,  _______,  _______,                KC_PENT,
         TD_END,  MS_WHLU,  MS_WHLD,  _______,  _______,  _______,     KC_P1,    KC_P2,    KC_P3,  _______,  _______,            _______,
@@ -308,6 +308,41 @@ bool rgb_matrix_indicators_user() {
     } else if (IS_LAYER_ON(FN1_LAYER)) {
         rgb_matrix_set_color_all(RGB_OFF);
 
+        rgb_matrix_set_color(INDEX_KEY_1, F_ROW_COLOUR); // F13
+        rgb_matrix_set_color(INDEX_KEY_2, F_ROW_COLOUR); // F14
+        rgb_matrix_set_color(INDEX_KEY_3, F_ROW_COLOUR); // F15
+        rgb_matrix_set_color(INDEX_KEY_4, F_ROW_COLOUR); // F16
+        rgb_matrix_set_color(INDEX_KEY_5, F_ROW_COLOUR); // F17
+        rgb_matrix_set_color(INDEX_KEY_6, F_ROW_COLOUR); // F18
+        rgb_matrix_set_color(INDEX_KEY_7, F_ROW_COLOUR); // F19
+        rgb_matrix_set_color(INDEX_KEY_8, F_ROW_COLOUR); // F20
+        rgb_matrix_set_color(INDEX_KEY_9, F_ROW_COLOUR); // F21
+        rgb_matrix_set_color(INDEX_KEY_0, F_ROW_COLOUR); // F22
+        rgb_matrix_set_color(INDEX_DASH, F_ROW_COLOUR); // F23
+        rgb_matrix_set_color(INDEX_EQUALS, F_ROW_COLOUR); // F24
+
+        rgb_matrix_set_color(INDEX_KEY_C, RGB_BLUE); // calculator
+        rgb_matrix_set_color(INDEX_KEY_P, RGB_GREEN); // print-screen (screenshot)
+        rgb_matrix_set_color(INDEX_ENTER, RGB_YELLOW); // menu key
+
+    } else if (IS_LAYER_ON(FN2_LAYER)) {
+        rgb_matrix_set_color_all(RGB_OFF);
+
+        // media
+        rgb_matrix_set_color(INDEX_KEY_P, MEDIA_KEYS_COLOUR); // play/pause
+        rgb_matrix_set_color(INDEX_LEFT_BRACKET, MEDIA_KEYS_COLOUR); // prev
+        rgb_matrix_set_color(INDEX_RIGHT_BRACKET, MEDIA_KEYS_COLOUR); // next
+        rgb_matrix_set_color(INDEX_BACKSLASH, MEDIA_KEYS_COLOUR); // stop
+
+        // volume keys
+        rgb_matrix_set_color(INDEX_DASH, VOLUME_KEYS_COLOUR); // down
+        rgb_matrix_set_color(INDEX_EQUALS, VOLUME_KEYS_COLOUR); // up
+        rgb_matrix_set_color(INDEX_BACKSPACE, VOLUME_KEYS_COLOUR); // toggle mute
+
+        // OBS
+        rgb_matrix_set_color(INDEX_ENTER, OBS_KEYS_COLOUR); // start recording
+        rgb_matrix_set_color(INDEX_RIGHT_SHIFT, OBS_KEYS_COLOUR); // stop recording
+
         // screen brightness
         rgb_matrix_set_color(INDEX_KEY_1, SCREEN_RIGHTNESS_KEYS_COLOUR); // down
         rgb_matrix_set_color(INDEX_KEY_2, SCREEN_RIGHTNESS_KEYS_COLOUR); // up
@@ -320,28 +355,6 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(INDEX_TAB, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // toggle off/on
         rgb_matrix_set_color(INDEX_KEY_Q, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // down
         rgb_matrix_set_color(INDEX_KEY_W, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // up
-
-        // volume keys
-        rgb_matrix_set_color(INDEX_DASH, VOLUME_KEYS_COLOUR); // down
-        rgb_matrix_set_color(INDEX_EQUALS, VOLUME_KEYS_COLOUR); // up
-        rgb_matrix_set_color(INDEX_BACKSPACE, VOLUME_KEYS_COLOUR); // toggle mute
-
-        rgb_matrix_set_color(INDEX_KEY_C, RGB_BLUE); // calculator
-        rgb_matrix_set_color(INDEX_KEY_P, RGB_GREEN); // print-screen (screenshot)
-        rgb_matrix_set_color(INDEX_ENTER, RGB_YELLOW); // menu key
-
-    } else if (IS_LAYER_ON(FN2_LAYER)) {
-        rgb_matrix_set_color_all(RGB_OFF);
-
-        // media
-        rgb_matrix_set_color(INDEX_DASH, MEDIA_KEYS_COLOUR); // prev
-        rgb_matrix_set_color(INDEX_EQUALS, MEDIA_KEYS_COLOUR); // next
-        rgb_matrix_set_color(INDEX_BACKSPACE, MEDIA_KEYS_COLOUR); // stop
-        rgb_matrix_set_color(INDEX_KEY_P, MEDIA_KEYS_COLOUR); // play/pause
-
-        // OBS
-        rgb_matrix_set_color(INDEX_ENTER, OBS_KEYS_COLOUR); // start recording
-        rgb_matrix_set_color(INDEX_RIGHT_SHIFT, OBS_KEYS_COLOUR); // stop recording
     }
 
     if (IS_LAYER_ON(GAMING_LAYER)) {

@@ -139,12 +139,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,     KC_F18,  KC_F19,  KC_F20,  KC_F21,  KC_F22,   KC_F23,   KC_F24,   KC_DEL,
         _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  KC_PSCR,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,     _______,  _______,  _______,  _______,  _______,  _______,            _______,
-        _______,  _______,  _______,  KC_CALC,  _______,  _______,     _______,  _______,  KC_BRID,  KC_BRIU,  _______,            KC_APP,
+        _______,  _______,  _______,  KC_CALC,  _______,  _______,     _______,  _______,  MS_WHLU,  MS_WHLD,  _______,            KC_APP,
         _______,  TG(GAMING_LAYER),  _______,                _______,  _______,                                 _______,  _______,  _______,  MO(FN3_LAYER),  _______
     ),
 
     [FN2_LAYER] = LAYOUT_all(
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_VOLD,  KC_VOLU,  KC_MUTE,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_BRID,  KC_BRIU,  KC_VOLD,  KC_VOLU,  KC_MUTE,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PLAY_PAUSE,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            OBS_REC_STA,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RM_VALD,  RM_VALU,            OBS_REC_STP,
@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,      _______,    _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______,      KC_CAPS,
         TD_HOME,  IDE_NAV_TO,    IDE_TO_DECL,  _______,  IDE_RENAME,  _______,     KC_P7,    KC_P8,    KC_P9,  _______,  _______,  _______,  _______,  KC_NUM_LOCK,
         _______,  IDE_USAGES,  IDE_TO_IMPL,  _______,  _______,  _______,     KC_P4,    KC_P5,    KC_P6,  _______,  _______,  _______,                KC_PENT,
-        TD_END,  MS_WHLU,  MS_WHLD,  _______,  _______,  _______,     KC_P1,    KC_P2,    KC_P3,  _______,  _______,            _______,
+        TD_END,  _______,  _______,  _______,  _______,  _______,     KC_P1,    KC_P2,    KC_P3,  _______,  _______,            _______,
         REOPEN_TAB, PREV_TAB,  NEXT_TAB,                CLOSE_TAB,  _______,                                 KC_P0,  KC_PDOT, _______,  _______,  _______
     ),
 
@@ -272,7 +272,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 // ---------------------------------------------------------------------------------
 
-#define SCREEN_RIGHTNESS_KEYS_COLOUR RGB_YELLOW
+#define SCREEN_RIGHTNESS_KEYS_COLOUR RGB_WHITE
 #define KB_BRIGHTNESS_KEYS_HSV_COLOUR HSV_WHITE
 #define VOLUME_KEYS_COLOUR RGB_ORANGE
 
@@ -326,9 +326,8 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(INDEX_KEY_P, RGB_GREEN); // print-screen (screenshot)
         rgb_matrix_set_color(INDEX_RIGHT_SHIFT, RGB_YELLOW); // menu key
 
-        // screen brightness
-        rgb_matrix_set_color(INDEX_COMMA, SCREEN_RIGHTNESS_KEYS_COLOUR); // down
-        rgb_matrix_set_color(INDEX_DOT, SCREEN_RIGHTNESS_KEYS_COLOUR); // up
+        rgb_matrix_set_color(INDEX_COMMA, NAV_KEYS_COLOUR); // mouse wheel up
+        rgb_matrix_set_color(INDEX_DOT, NAV_KEYS_COLOUR); // mouse wheel down
 
     } else if (IS_LAYER_ON(FN2_LAYER)) {
         rgb_matrix_set_color_all(RGB_OFF);
@@ -356,6 +355,10 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(INDEX_RIGHT_CTRL, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // toggle off/on
         rgb_matrix_set_color(INDEX_DOT, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // down
         rgb_matrix_set_color(INDEX_SLASH, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // up
+
+        // screen brightness
+        rgb_matrix_set_color(INDEX_KEY_9, SCREEN_RIGHTNESS_KEYS_COLOUR); // down
+        rgb_matrix_set_color(INDEX_KEY_0, SCREEN_RIGHTNESS_KEYS_COLOUR); // up
     }
 
     if (IS_LAYER_ON(GAMING_LAYER)) {
@@ -366,9 +369,6 @@ bool rgb_matrix_indicators_user() {
 
         rgb_matrix_set_color(INDEX_TAB, NAV_KEYS_COLOUR); // home
         rgb_matrix_set_color(INDEX_LEFT_SHIFT, NAV_KEYS_COLOUR); // end
-
-        rgb_matrix_set_color(INDEX_KEY_Z, NAV_KEYS_COLOUR); // mouse wheel up
-        rgb_matrix_set_color(INDEX_KEY_X, NAV_KEYS_COLOUR); // mouse wheel down
 
         // ide keys
         rgb_matrix_set_color(INDEX_KEY_Q, IDE_KEYS_COLOUR);

@@ -78,6 +78,9 @@
 // Next virtual desktop (Ctrl + Win + Right)
 #define NEXT_DESKTOP LCG(KC_RGHT)
 
+// Task Manager (Ctrl + Shift + Esc)
+#define TASK_MGR LCS(KC_ESC)
+
 // ---------------------------------------------------------------------------------
 // Tap Dance declarations
 
@@ -147,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_BRID,  KC_BRIU,  KC_VOLD,  KC_VOLU,  KC_MUTE,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PLAY_PAUSE,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            OBS_REC_STA,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RM_VALD,  RM_VALU,            OBS_REC_STP,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RM_VALD,  RM_VALU,  TASK_MGR,            OBS_REC_STP,
         _______,  _______,  _______,                _______,  _______,                              _______,  _______,  MO(FN3_LAYER),  _______,  RM_TOGG
     ),
 
@@ -353,8 +356,10 @@ bool rgb_matrix_indicators_user() {
         rgb_t kb_brightness_rgb = hsv_to_rgb(kb_brightness_hsv);
 
         rgb_matrix_set_color(INDEX_RIGHT_CTRL, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // toggle off/on
-        rgb_matrix_set_color(INDEX_DOT, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // down
-        rgb_matrix_set_color(INDEX_SLASH, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // up
+        rgb_matrix_set_color(INDEX_COMMA, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // down
+        rgb_matrix_set_color(INDEX_DOT, kb_brightness_rgb.r, kb_brightness_rgb.g, kb_brightness_rgb.b); // up
+
+        rgb_matrix_set_color(INDEX_SLASH, RGB_BLUE); // Task Manager
 
         // screen brightness
         rgb_matrix_set_color(INDEX_KEY_9, SCREEN_RIGHTNESS_KEYS_COLOUR); // down

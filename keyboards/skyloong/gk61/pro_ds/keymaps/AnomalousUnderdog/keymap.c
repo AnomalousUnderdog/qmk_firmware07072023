@@ -301,6 +301,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // ---------------------------------------------------------------------------------
 
 bool rgb_matrix_indicators_user() {
+    rgb_matrix_set_color(INDEX_ESC, RGB_RED);
 
     if (IS_LAYER_ON(FN3_LAYER)) {
         rgb_matrix_set_color_all(RGB_OFF);

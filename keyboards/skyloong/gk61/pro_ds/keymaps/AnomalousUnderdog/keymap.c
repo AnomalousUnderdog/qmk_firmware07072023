@@ -54,6 +54,12 @@
 
 // --------------------------------------
 
+// Music
+
+#define TOGGLE_SOLO_LOOP MEH(KC_F13)
+
+// --------------------------------------
+
 // Browser
 
 // Reopen closed tab (Ctrl + Shift + T)
@@ -148,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [FN2_LAYER] = LAYOUT_all(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_BRID,  KC_BRIU,  KC_VOLD,  KC_VOLU,  KC_MUTE,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PLAY_PAUSE,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  TOGGLE_SOLO_LOOP,  KC_MEDIA_PLAY_PAUSE,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            OBS_REC_STA,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RM_VALD,  RM_VALU,  TASK_MGR,            OBS_REC_STP,
         _______,  _______,  _______,                _______,  _______,                              _______,  _______,  MO(FN3_LAYER),  _______,  RM_TOGG
@@ -339,6 +345,7 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color_all(RGB_OFF);
 
         // media
+        rgb_matrix_set_color(INDEX_KEY_O, MEDIA_KEYS_COLOUR); // toggle solo loop
         rgb_matrix_set_color(INDEX_KEY_P, MEDIA_KEYS_COLOUR); // play/pause
         rgb_matrix_set_color(INDEX_LEFT_BRACKET, MEDIA_KEYS_COLOUR); // prev
         rgb_matrix_set_color(INDEX_RIGHT_BRACKET, MEDIA_KEYS_COLOUR); // next

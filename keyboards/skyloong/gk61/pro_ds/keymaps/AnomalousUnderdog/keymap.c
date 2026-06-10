@@ -202,7 +202,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_RSFT,KC_UP):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + 650;
         default:
             return TAPPING_TERM;
     }

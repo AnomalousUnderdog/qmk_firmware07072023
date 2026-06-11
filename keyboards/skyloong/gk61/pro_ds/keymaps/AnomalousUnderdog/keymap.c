@@ -57,6 +57,9 @@
 // Music
 
 #define TOGGLE_SOLO_LOOP MEH(KC_F13)
+#define VOL_UP MEH(KC_F14)
+#define VOL_DOWN MEH(KC_F15)
+#define REVERB MEH(KC_F16)
 
 // --------------------------------------
 
@@ -154,8 +157,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [FN2_LAYER] = LAYOUT_all(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_BRID,  KC_BRIU,  KC_VOLD,  KC_VOLU,  KC_MUTE,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  TOGGLE_SOLO_LOOP,  KC_MEDIA_PLAY_PAUSE,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,  KC_MEDIA_STOP,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            OBS_REC_STA,
+        _______,  _______,  _______,  _______,  REVERB,  _______,  _______,  _______,  _______,  TOGGLE_SOLO_LOOP,  KC_MEDIA_PLAY_PAUSE,  VOL_DOWN,  VOL_UP,  KC_MEDIA_STOP,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_MEDIA_PREV_TRACK,  KC_MEDIA_NEXT_TRACK,            OBS_REC_STA,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  RM_VALD,  RM_VALU,  TASK_MGR,            OBS_REC_STP,
         _______,  _______,  _______,                _______,  _______,                              _______,  _______,  MO(FN3_LAYER),  _______,  RM_TOGG
     ),
@@ -345,11 +348,16 @@ bool rgb_matrix_indicators_user() {
     } else if (IS_LAYER_ON(FN2_LAYER)) {
         rgb_matrix_set_color_all(RGB_OFF);
 
-        // media
+        // music player
         rgb_matrix_set_color(INDEX_KEY_O, MEDIA_KEYS_COLOUR); // toggle solo loop
+        rgb_matrix_set_color(INDEX_SEMI_COLON, MEDIA_KEYS_COLOUR); // prev
+        rgb_matrix_set_color(INDEX_SINGLE_QUOTE, MEDIA_KEYS_COLOUR); // next
+        rgb_matrix_set_color(INDEX_KEY_R, MEDIA_KEYS_COLOUR); // reverb
+
+        // media
         rgb_matrix_set_color(INDEX_KEY_P, MEDIA_KEYS_COLOUR); // play/pause
-        rgb_matrix_set_color(INDEX_LEFT_BRACKET, MEDIA_KEYS_COLOUR); // prev
-        rgb_matrix_set_color(INDEX_RIGHT_BRACKET, MEDIA_KEYS_COLOUR); // next
+        rgb_matrix_set_color(INDEX_LEFT_BRACKET, MEDIA_KEYS_COLOUR); // volume down
+        rgb_matrix_set_color(INDEX_RIGHT_BRACKET, MEDIA_KEYS_COLOUR); // volume up
         rgb_matrix_set_color(INDEX_BACKSLASH, MEDIA_KEYS_COLOUR); // stop
 
         // volume keys

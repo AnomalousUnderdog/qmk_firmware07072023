@@ -90,6 +90,19 @@
 // Task Manager (Ctrl + Shift + Esc)
 #define TASK_MGR LCS(KC_ESC)
 
+// --------------------------------------
+
+// Steam
+
+// Steam Overlay
+#define STEAM_OVLY LCS(KC_F12)
+
+// Steam Performance Monitor
+#define STEAM_PERFMON LCS(KC_F10)
+
+// Steam Screenshot
+#define STEAM_SCREENSHOT KC_DEL
+
 // ---------------------------------------------------------------------------------
 // Tap Dance declarations
 
@@ -140,8 +153,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [GAMING_LAYER] = LAYOUT_all(
-        _______,  _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   LCS(KC_F12),   LCS(KC_DEL),   _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,  _______,  _______,  KC_DEL,
+        _______,  _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   STEAM_PERFMON,   STEAM_OVLY,   _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,  _______,  _______,  STEAM_SCREENSHOT,
         KC_BSLS,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,            _______,
         _______,  KC_MINS,  _______,                _______,  _______,                              KC_EQL,  _______,  _______,  _______,  _______
@@ -387,9 +400,10 @@ bool rgb_matrix_indicators_user() {
 
     if (IS_LAYER_ON(GAMING_LAYER)) {
         rgb_matrix_set_color(INDEX_LEFT_WIN, RGB_RED); // gaming layer indicator
-        rgb_matrix_set_color(INDEX_DASH, RGB_BLUE); // toggle performance monitor
-        rgb_matrix_set_color(INDEX_EQUALS, RGB_BLUE); // toggle steam overlay
-        rgb_matrix_set_color(INDEX_BACKSLASH, RGB_GREEN); // steam screenshot
+
+        rgb_matrix_set_color(INDEX_DASH, RGB_BLUE); // toggle Steam Performance Monitor
+        rgb_matrix_set_color(INDEX_EQUALS, RGB_BLUE); // toggle Steam Overlay
+        rgb_matrix_set_color(INDEX_BACKSLASH, RGB_GREEN); // Steam Screenshot
 
     } else if (IS_LAYER_ON(CAPS_LOCK_LAYER)) {
         rgb_matrix_set_color_all(RGB_OFF);

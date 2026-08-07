@@ -46,11 +46,11 @@
 
 // OBS
 
-// Start screen recording (Ctrl + Shift + Alt + Left Bracket)
-#define OBS_REC_STA MEH(KC_LEFT_BRACKET)
+// Start screen recording (Shift + F13)
+#define OBS_REC_STA S(KC_F13)
 
-// Stop screen recording (Ctrl + Shift + Alt + Right Bracket)
-#define OBS_REC_STP MEH(KC_RIGHT_BRACKET)
+// Stop screen recording (Shift + F14)
+#define OBS_REC_STP S(KC_F14)
 
 // --------------------------------------
 

@@ -52,6 +52,15 @@
 // Stop screen recording (Shift + F14)
 #define OBS_REC_STP S(KC_F14)
 
+
+// --------------------------------------
+
+// Alt + tab between Game Engine (Unity) and IDE (Rider) (Ctrl + F13)
+#define FOCUS_UNITY_RIDER C(KC_F13)
+
+// Alt + tab to Git Frontend (Fork) (Ctrl + F14)
+#define FOCUS_GIT C(KC_F14)
+
 // --------------------------------------
 
 // Music
@@ -197,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,    KC_UP,  KC_PGDN,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,  _______,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,   KC_ENT,  KC_RSFT,  KC_PENT,  _______,  _______,            _______,
-        _______,  _______,  _______,                _______,  _______,                              _______,  PREV_DESKTOP,  NEXT_DESKTOP,  _______,  _______
+        _______,  _______,  _______,                _______,  _______,                              _______,  FOCUS_UNITY_RIDER,  FOCUS_GIT,  _______,  _______
     ),
 };
 
@@ -300,6 +309,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #define SCREEN_RIGHTNESS_KEYS_COLOUR RGB_WHITE
 #define KB_BRIGHTNESS_KEYS_HSV_COLOUR HSV_WHITE
 #define VOLUME_KEYS_COLOUR RGB_ORANGE
+
+#define DEV_KEYS_COLOUR 0x00, 0xD8, 0xFF
 
 #define MEDIA_KEYS_COLOUR 0x00, 0xD8, 0xFF
 #define OBS_KEYS_COLOUR RGB_RED
@@ -480,9 +491,9 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(INDEX_KEY_M, ARROW_COMPLEMENT_KEYS_COLOUR); // right shift
         rgb_matrix_set_color(INDEX_COMMA, ARROW_COMPLEMENT_KEYS_COLOUR); // numpad enter
 
-        // virtual desktop
-        rgb_matrix_set_color(INDEX_RIGHT_ALT, DESKTOP_KEYS_COLOUR); // prev
-        rgb_matrix_set_color(INDEX_FN_1, DESKTOP_KEYS_COLOUR); // next
+        // dev
+        rgb_matrix_set_color(INDEX_RIGHT_ALT, DEV_KEYS_COLOUR); // Focus Unity Rider
+        rgb_matrix_set_color(INDEX_FN_1, DEV_KEYS_COLOUR); // Focus Git
     }
 
     return false;
